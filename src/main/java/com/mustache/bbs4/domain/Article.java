@@ -1,8 +1,6 @@
 package com.mustache.bbs4.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +9,8 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @ToString
+@Setter
+@AllArgsConstructor
 public class Article {
 
     @Id
