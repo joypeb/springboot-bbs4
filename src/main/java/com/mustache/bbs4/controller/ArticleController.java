@@ -91,4 +91,11 @@ public class ArticleController {
         String re = "redirect:/articles/" + article.getId();
         return re;
     }
+
+    //삭제
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        articleRepository.deleteById(id);
+        return "redirect:/articles/list";
+    }
 }
