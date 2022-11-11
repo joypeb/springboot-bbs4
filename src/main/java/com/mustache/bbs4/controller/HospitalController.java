@@ -4,6 +4,11 @@ import com.mustache.bbs4.domain.Hospital;
 import com.mustache.bbs4.repository.HospitalRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +39,21 @@ public class HospitalController {
         } else {
             model.addAttribute("hospital", hospital.get());
             return "hospitalShowOne";
+        }
+    }
+
+    @GetMapping("/list")
+    public String list(Model model) {
+        Pageable pageable = PageRequest.of(0,20, Sort.by("id").ascending());
+
+        Page<Hospital> hospital = hospitalRepository.findAll(pageable);
+
+        if(hospital.isEmpty()) {
+            model.addAttribute("id", hospital);
+            return "error";
+        } else {
+            model.addAttribute("hospitalList", hospital);
+            return "hospitalList";
         }
     }
 }
