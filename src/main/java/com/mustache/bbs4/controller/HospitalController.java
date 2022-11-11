@@ -43,9 +43,7 @@ public class HospitalController {
     }
 
     @GetMapping("/list")
-    public String list(Model model) {
-        Pageable pageable = PageRequest.of(0,20, Sort.by("id").ascending());
-
+    public String list(Model model, @PageableDefault(size = 20,sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Hospital> hospital = hospitalRepository.findAll(pageable);
 
         if(hospital.isEmpty()) {
