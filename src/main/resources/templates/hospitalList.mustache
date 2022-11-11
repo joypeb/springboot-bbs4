@@ -11,15 +11,33 @@
         </thead>
         <tbody>
             {{#hospitalList}}
+                <a href="/hospitals/{{id}}">
                 <tr>
+
                     <td>{{id}}</td>
                     <td>{{hospitalName}}</td>
                     <td>{{roadNameAddress}}</td>
+
                 </tr>
+                </a>
             {{/hospitalList}}
         </tbody>
     </table>
 </div>
-<div>
-</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {{#hasPrevious}}
+            <li class="page-item"><a class="page-link" href='?page={{previous}}'>Previous</a></li>
+        {{/hasPrevious}}
+        {{^hasPrevious}}
+            <li class="page-item disabled"><a class="page-link" href='?page={{previous}}'>Previous</a></li>
+        {{/hasPrevious}}
+        {{#hasNext}}
+            <li class="page-item"><a class="page-link" href='?page={{next}}'>Next</a></li>
+        {{/hasNext}}
+        {{^hasNext}}
+            <li class="page-item disabled"><a class="page-link" href='?page={{next}}'>Next</a></li>
+        {{/hasNext}}
+    </ul>
+</nav>
 {{>layouts/footer}}

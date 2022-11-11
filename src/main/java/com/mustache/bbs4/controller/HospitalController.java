@@ -33,7 +33,7 @@ public class HospitalController {
     public String selectOne(@PathVariable Long id, Model model) {
         Optional<Hospital> hospital = hospitalRepository.findById(id);
 
-        if(hospital.isEmpty()) {
+        if (hospital.isEmpty()) {
             model.addAttribute("id", id);
             return "error";
         } else {
@@ -43,15 +43,14 @@ public class HospitalController {
     }
 
     @GetMapping("/list")
-    public String list(Model model, @PageableDefault(size = 20,sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Hospital> hospital = hospitalRepository.findAll(pageable);
+    public String list(Model model, @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        Page<Hospital> hospitalPage = hospitalRepository.findAll(pageable);
 
-        if(hospital.isEmpty()) {
-            model.addAttribute("id", hospital);
-            return "error";
-        } else {
-            model.addAttribute("hospitalList", hospital);
-            return "hospitalList";
-        }
+        model.addAttribute("hospitalList", hospitalPage);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next", pageable.next().getPageNumber());
+        model.addAttribute("hasNext", hospitalPage.hasNext());
+        model.addAttribute("hasPrevious", hospitalPage.hasPrevious());
+        return "hospitalList";
     }
 }
