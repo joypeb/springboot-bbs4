@@ -1,5 +1,6 @@
 package com.mustache.bbs4.domain;
 
+import com.mustache.bbs4.domain.dto.HospitalResponse;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -52,4 +53,9 @@ public class Hospital {
         this.totalNumberOfBeds = totalNumberOfBeds;
         this.totalAreaSize = totalAreaSize;
     }
+
+
+   /* public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(),hospital.getHospitalName());
+    }*/
 }
