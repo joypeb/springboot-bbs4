@@ -10,4 +10,6 @@ import java.util.List;
 public interface HospitalRepository extends JpaRepository<Hospital, Long> {
     List<Hospital> findByBusinessTypeNameIn(List<String> businessTypes);
     List<Hospital> findByFullAddressContainingAndBusinessTypeNameIn(String name,List<String> businessName);
+
+    List<Hospital> findByTotalNumberOfBedsBetween(int low, int high);
 }

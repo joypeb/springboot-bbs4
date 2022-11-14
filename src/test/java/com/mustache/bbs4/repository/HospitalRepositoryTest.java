@@ -48,4 +48,14 @@ class HospitalRepositoryTest {
 
         System.out.println(hospitals.size());
     }
+
+    @Test
+    void numberOfBedbetween() {
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10,19);
+        for (int i = 0; i < hospitals.size(); i++) {
+            System.out.println(hospitals.get(i).toString());
+        }
+
+        System.out.println(hospitals.size());
+    }
 }
