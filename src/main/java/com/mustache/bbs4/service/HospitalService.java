@@ -23,12 +23,15 @@ public class HospitalService {
         Hospital hospital = hospitalOptional.get();
         HospitalResponse hospitalResponse = Hospital.of(hospital);
 
-        if (hospital.getBusinessStatusCode() == 13) {
-            hospitalResponse.setBusinessStatusName("영업중");
-        } else if (hospital.getBusinessStatusCode() == 3) {
-            hospitalResponse.setBusinessStatusName("폐업");
-        } else {
-            hospitalResponse.setBusinessStatusName(String.valueOf(hospital.getBusinessStatus()));
+        switch (hospital.getBusinessStatusCode()) {
+            case 13:
+                hospitalResponse.setBusinessStatusName("영업중");
+                break;
+            case 3:
+                hospitalResponse.setBusinessStatusName("폐업");
+                break;
+            default:
+                hospitalResponse.setBusinessStatusName(String.valueOf(hospital.getBusinessStatusCode()));
         }
 
         return hospitalResponse;

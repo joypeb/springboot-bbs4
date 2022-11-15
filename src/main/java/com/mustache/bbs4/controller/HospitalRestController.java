@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/hospitals")
 public class HospitalRestController{
 
-    private final HospitalService hospitalService
+    private final HospitalService hospitalService;
 
     @Autowired
     public HospitalRestController(HospitalService hospitalService) {
