@@ -55,7 +55,7 @@ public class Hospital {
     }
 
 
-   /* public static HospitalResponse of(Hospital hospital) {
-        return new HospitalResponse(hospital.getId(),hospital.getHospitalName());
-    }*/
+   public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(), hospital.getRoadNameAddress(), hospital.getHospitalName(), hospital.patientRoomCount, hospital.getTotalNumberOfBeds());
+    }
 }
