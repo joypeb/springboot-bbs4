@@ -1,5 +1,6 @@
 package com.mustache.bbs4.domain;
 
+import com.mustache.bbs4.domain.dto.ArticleDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,5 +26,10 @@ public class Article {
     public Article(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+
+    public static ArticleDto of(Article article) {
+        return new ArticleDto(article.getId(),article.getTitle(),article.getContent());
     }
 }
