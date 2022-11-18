@@ -20,7 +20,7 @@ class HospitalRepositoryTest {
 
     @Test
     void findByBusinessTypeName() {
-        List<String> inClues = new ArrayList<>();
+        /*List<String> inClues = new ArrayList<>();
         inClues.add("보건소");
         inClues.add("보건지소");
         inClues.add("보건진료소");
@@ -30,7 +30,7 @@ class HospitalRepositoryTest {
             System.out.println(hospitals.get(i).toString());
         }
 
-        System.out.println(hospitals.size());
+        System.out.println(hospitals.size());*/
     }
 
     @Test
@@ -57,13 +57,13 @@ class HospitalRepositoryTest {
         List<Hospital> hospitals11 = hospitalRepository.findByPhoneIsNull();
         List<Hospital> hospitals12 = hospitalRepository.findByPhoneIsNotNull();
         List<Hospital> hospitals13 = hospitalRepository.findByLicenseDateBefore(localDateTime);
-        List<Hospital> hospitals14 = hospitalRepository.findByLicenseDateAfter(localDateTime);*/
+        List<Hospital> hospitals14 = hospitalRepository.findByLicenseDateAfter(localDateTime);
         List<Hospital> hospitals15 = hospitalRepository.findByIdLessThan(10L);
         List<Hospital> hospitals16 = hospitalRepository.findByIdGreaterThan(100000L);
         List<Hospital> hospitals17 = hospitalRepository.findByIdBetween(10L, 20L);
         List<Hospital> hospitals18 = hospitalRepository.findByRoadNameAddressContainsOrderById("수원");
         List<Hospital> hospitals19 = hospitalRepository.findByRoadNameAddressContainsOrderByIdDesc("수원");
-        Long count = hospitalRepository.countByBusinessStatus(1);
+        Long count = hospitalRepository.countByBusinessStatus(1);*/
 
         /*for(int i=0; i<hospitals18.size(); i++) {
             System.out.println(hospitals18.get(i).toString());
@@ -87,16 +87,16 @@ class HospitalRepositoryTest {
         System.out.println(hospitals16.size());
         System.out.println(hospitals17.size());
         System.out.println(hospitals18.size());
-        System.out.println(hospitals19.size());*/
-        System.out.println(count);
+        System.out.println(hospitals19.size());
+        System.out.println(count);*/
     }
 
     @Test
     void numberOfBedbetween() {
-        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10,19);
+        /*List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10,19);
         for (int i = 0; i < hospitals.size(); i++) {
             System.out.println(hospitals.get(i).toString());
         }
-        System.out.println(hospitals.size());
+        System.out.println(hospitals.size());*/
     }
 }

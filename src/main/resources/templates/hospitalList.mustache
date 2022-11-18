@@ -1,5 +1,9 @@
 {{>layouts/header}}
 
+<form action="/hospitals" method="get">
+    지역: <input type="text" name="keyword" />
+    <input type="submit" />
+</form>
 <div>
     <table>
         <thead>
@@ -23,16 +27,16 @@
 <nav aria-label="Page navigation example">
     <ul class="pagination">
         {{#hasPrevious}}
-            <li class="page-item"><a class="page-link" href='?page={{previous}}'>Previous</a></li>
+            <li class="page-item"><a class="page-link" href='?page={{previous}}&city={{city}}'>Previous</a></li>
         {{/hasPrevious}}
         {{^hasPrevious}}
-            <li class="page-item disabled"><a class="page-link" href='?page={{previous}}'>Previous</a></li>
+            <li class="page-item disabled"><a class="page-link" href='?page={{previous}}&city={{city}}'>Previous</a></li>
         {{/hasPrevious}}
         {{#hasNext}}
-            <li class="page-item"><a class="page-link" href='?page={{next}}'>Next</a></li>
+            <li class="page-item"><a class="page-link" href='?page={{next}}&city={{city}}'>Next</a></li>
         {{/hasNext}}
         {{^hasNext}}
-            <li class="page-item disabled"><a class="page-link" href='?page={{next}}'>Next</a></li>
+            <li class="page-item disabled"><a class="page-link" href='?page={{next}}&city={{city}}'>Next</a></li>
         {{/hasNext}}
     </ul>
 </nav>

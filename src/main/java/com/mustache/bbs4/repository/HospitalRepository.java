@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface HospitalRepository extends JpaRepository<Hospital, Long> {
-    List<Hospital> findByBusinessStatusCode(int code);
+    Page<Hospital> findAllByRoadNameAddressContaining(String name, Pageable pageable);
+    /*List<Hospital> findByBusinessStatusCode(int code);
     List<Hospital> findByBusinessTypeNameIn(List<String> businessTypes);
     List<Hospital> findByFullAddressContainingAndBusinessTypeNameIn(String name,List<String> businessName);
     List<Hospital> findByTotalNumberOfBedsBetween(int low, int high);
@@ -30,5 +31,5 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
     List<Hospital> findByIdBetween(Long start, Long end);
     List<Hospital> findByRoadNameAddressContainsOrderById(String addr);
     List<Hospital> findByRoadNameAddressContainsOrderByIdDesc(String addr);
-    Long countByBusinessStatus(int num);
+    Long countByBusinessStatus(int num);*/
 }

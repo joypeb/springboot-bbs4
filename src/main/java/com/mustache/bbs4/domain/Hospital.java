@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @ToString
 @Setter
 @AllArgsConstructor
+@Builder
 public class Hospital {
 
     @Id
@@ -55,7 +56,7 @@ public class Hospital {
     }
 
 
-   public static HospitalResponse of(Hospital hospital) {
+    public static HospitalResponse of(Hospital hospital) {
         return new HospitalResponse(hospital.getId(), hospital.getRoadNameAddress(), hospital.getHospitalName(), hospital.patientRoomCount, hospital.getTotalNumberOfBeds());
     }
 }
